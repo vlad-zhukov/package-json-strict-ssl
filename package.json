@@ -1,9 +1,9 @@
 {
 	"name": "package-json-strict-ssl",
-	"version": "6.5.0",
+	"version": "6.5.1",
 	"description": "Get metadata of a package from the npm registry",
 	"license": "MIT",
-	"repository": "sindresorhus/package-json",
+	"repository": "vlad-zhukov/package-json-strict-ssl",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",

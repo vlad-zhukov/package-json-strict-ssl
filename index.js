@@ -59,7 +59,11 @@ const packageJson = async (packageName, options) => {
 	const gotOptions = {
 		json: true,
 		headers,
-		agent: isStrictSsl ? {http: httpAgent, https: httpsAgent} : httpAgent
+		agent: {
+			http: httpAgent,
+			https: httpsAgent
+		},
+		rejectUnauthorized: isStrictSsl
 	};
 
 	if (options.agent) {
