@@ -1,5 +1,5 @@
 {
-	"name": "package-json",
+	"name": "package-json-strict-ssl",
 	"version": "6.5.0",
 	"description": "Get metadata of a package from the npm registry",
 	"license": "MIT",
@@ -32,6 +32,7 @@
 	],
 	"dependencies": {
 		"got": "^9.6.0",
+		"rc": "^1.2.8",
 		"registry-auth-token": "^4.0.0",
 		"registry-url": "^5.0.0",
 		"semver": "^6.2.0"

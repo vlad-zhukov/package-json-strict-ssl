@@ -6,6 +6,7 @@ const got = require('got');
 const registryUrl = require('registry-url');
 const registryAuthToken = require('registry-auth-token');
 const semver = require('semver');
+const rc = require('rc');
 
 // These agent options are chosen to match the npm client defaults and help with performance
 // See: `npm config get maxsockets` and #50
@@ -15,6 +16,8 @@ const agentOptions = {
 };
 const httpAgent = new HttpAgent(agentOptions);
 const httpsAgent = new HttpsAgent(agentOptions);
+
+const isStrictSsl = rc('npm', {'strict-ssl': true})['strict-ssl'];
 
 class PackageNotFoundError extends Error {
 	constructor(packageName) {
@@ -56,10 +59,7 @@ const packageJson = async (packageName, options) => {
 	const gotOptions = {
 		json: true,
 		headers,
-		agent: {
-			http: httpAgent,
-			https: httpsAgent
-		}
+		agent: isStrictSsl ? {http: httpAgent, https: httpsAgent} : httpAgent
 	};
 
 	if (options.agent) {
